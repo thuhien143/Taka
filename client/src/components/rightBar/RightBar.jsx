@@ -1,4 +1,5 @@
 import "./rightBar.scss"
+import avaTest from "../../assets/thuhien.jpg"
 
 const RightBar = () => {
   return (
@@ -8,7 +9,7 @@ const RightBar = () => {
           <span>Suggestions For You</span>
           <div className="user">
             <div className="userInfo">
-              <img src="https://scontent.fhan15-2.fna.fbcdn.net/v/t39.30808-1/363354857_3344273902550150_5258645824125206791_n.jpg?stp=dst-jpg_p200x200&_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=WwILbTGDxJoQ7kNvgF1YXgx&_nc_ht=scontent.fhan15-2.fna&oh=00_AYDdQbpFiKgF5Gdszgur_EZTK_OHJgfPDhSrtSrl_aRhNg&oe=6652413B" alt="" />
+              <img src={avaTest} alt="" />
               <span>Thu Hien</span>
             </div>
             <div className="buttons">
@@ -18,7 +19,7 @@ const RightBar = () => {
           </div>
           <div className="user">
             <div className="userInfo">
-              <img src="https://scontent.fhan15-2.fna.fbcdn.net/v/t39.30808-1/363354857_3344273902550150_5258645824125206791_n.jpg?stp=dst-jpg_p200x200&_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=WwILbTGDxJoQ7kNvgF1YXgx&_nc_ht=scontent.fhan15-2.fna&oh=00_AYDdQbpFiKgF5Gdszgur_EZTK_OHJgfPDhSrtSrl_aRhNg&oe=6652413B" alt="" />
+              <img src={avaTest} alt="" />
               <span>Thu Hien</span>
             </div>
             <div className="buttons">
@@ -31,7 +32,7 @@ const RightBar = () => {
           <span>Latest Activities</span>
           <div className="user">
             <div className="userInfo">
-              <img src="https://scontent.fhan15-2.fna.fbcdn.net/v/t39.30808-1/363354857_3344273902550150_5258645824125206791_n.jpg?stp=dst-jpg_p200x200&_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=WwILbTGDxJoQ7kNvgF1YXgx&_nc_ht=scontent.fhan15-2.fna&oh=00_AYDdQbpFiKgF5Gdszgur_EZTK_OHJgfPDhSrtSrl_aRhNg&oe=6652413B" alt="" />
+              <img src={avaTest} alt="" />
               <p>
                 <span>Thu Hien</span> changed their cover picture
               </p>
@@ -40,7 +41,7 @@ const RightBar = () => {
           </div>
           <div className="user">
             <div className="userInfo">
-              <img src="https://scontent.fhan15-2.fna.fbcdn.net/v/t39.30808-1/363354857_3344273902550150_5258645824125206791_n.jpg?stp=dst-jpg_p200x200&_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=WwILbTGDxJoQ7kNvgF1YXgx&_nc_ht=scontent.fhan15-2.fna&oh=00_AYDdQbpFiKgF5Gdszgur_EZTK_OHJgfPDhSrtSrl_aRhNg&oe=6652413B" alt="" />
+              <img src={avaTest} alt="" />
               <p>
                 <span>Thu Hien</span> changed their cover picture
               </p>
@@ -52,28 +53,28 @@ const RightBar = () => {
           <span>Online Friends</span>
           <div className="user">
             <div className="userInfo">
-              <img src="https://scontent.fhan15-2.fna.fbcdn.net/v/t39.30808-1/363354857_3344273902550150_5258645824125206791_n.jpg?stp=dst-jpg_p200x200&_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=WwILbTGDxJoQ7kNvgF1YXgx&_nc_ht=scontent.fhan15-2.fna&oh=00_AYDdQbpFiKgF5Gdszgur_EZTK_OHJgfPDhSrtSrl_aRhNg&oe=6652413B" alt="" />
+              <img src={avaTest} alt="" />
               <div className="online" />
               <span>Thu Hien</span> 
             </div>
           </div>
           <div className="user">
             <div className="userInfo">
-              <img src="https://scontent.fhan15-2.fna.fbcdn.net/v/t39.30808-1/363354857_3344273902550150_5258645824125206791_n.jpg?stp=dst-jpg_p200x200&_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=WwILbTGDxJoQ7kNvgF1YXgx&_nc_ht=scontent.fhan15-2.fna&oh=00_AYDdQbpFiKgF5Gdszgur_EZTK_OHJgfPDhSrtSrl_aRhNg&oe=6652413B" alt="" />
+              <img src={avaTest} alt="" />
               <div className="online" />
               <span>Thu Hien</span> 
             </div>
           </div>
           <div className="user">
             <div className="userInfo">
-              <img src="https://scontent.fhan15-2.fna.fbcdn.net/v/t39.30808-1/363354857_3344273902550150_5258645824125206791_n.jpg?stp=dst-jpg_p200x200&_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=WwILbTGDxJoQ7kNvgF1YXgx&_nc_ht=scontent.fhan15-2.fna&oh=00_AYDdQbpFiKgF5Gdszgur_EZTK_OHJgfPDhSrtSrl_aRhNg&oe=6652413B" alt="" />
+              <img src={avaTest} alt="" />
               <div className="online" />
               <span>Thu Hien</span> 
             </div>
           </div>
           <div className="user">
             <div className="userInfo">
-              <img src="https://scontent.fhan15-2.fna.fbcdn.net/v/t39.30808-1/363354857_3344273902550150_5258645824125206791_n.jpg?stp=dst-jpg_p200x200&_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=WwILbTGDxJoQ7kNvgF1YXgx&_nc_ht=scontent.fhan15-2.fna&oh=00_AYDdQbpFiKgF5Gdszgur_EZTK_OHJgfPDhSrtSrl_aRhNg&oe=6652413B" alt="" />
+              <img src={avaTest} alt="" />
               <div className="online" />
               <span>Thu Hien</span> 
             </div>
