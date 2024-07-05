@@ -1,71 +1,102 @@
 import "./update.scss";
+import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
-import { makeRequest } from "../../axios";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { makeRequest } from "../../axios";
 
-const Update = ({setOpenUpdate, user}) => {
+const Update = ({ setOpenUpdate, user }) => {
+  const [name, setName] = useState(user.name || "");
+  const [city, setCity] = useState(user.city || "");
+  const [website, setWebsite] = useState(user.website || "");
+  const [profilePic, setProfilePic] = useState(null);
+  const [coverPic, setCoverPic] = useState(null);
 
-    const[cover, setCover] = useState(null)
-    const[profile, setProfile] = useState(null)
+  const queryClient = useQueryClient();
 
-    const [texts, setTexts] = useState({
-        name: "",
-        city: "",
-        website: "",
-    });
-
-    const upload = async (file) => {
-        try {
-          const formData = new FormData();
-          formData.append("file", file);
-          const res = await makeRequest.post("/upload", formData);
-          return res.data;
-        } catch (err) {
-          console.log(err);
-        }
-      };
-
-    const handleChange = (e) => {
-        setTexts((prev) => ({...prev, [e.target.name]: [e.target.value]}));
-    }
-
-    const queryClient = useQueryClient();
-
-  const mutation = useMutation(
-    {
-      mutationFn: (user) => makeRequest.put("/users", user),
-      onSuccess: () => {
-        queryClient.invalidateQueries(["user"]);
+  const mutation = useMutation({
+    mutationFn: (updatedUser) => {
+      const formData = new FormData();
+      formData.append("name", updatedUser.name);
+      formData.append("city", updatedUser.city);
+      formData.append("website", updatedUser.website);
+      if (updatedUser.profilePic) {
+        formData.append("profilePic", updatedUser.profilePic);
       }
-    }
-  );
+      if (updatedUser.coverPic) {
+        formData.append("coverPic", updatedUser.coverPic);
+      }
+      return makeRequest.put("/users/" + user.id, formData);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries(["user", user.id]);
+      setOpenUpdate(false);
+    },
+  });
 
-  const handleClick = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    let coverUrl;
-    let profileUrl;
-
-    coverUrl = cover ? await upload(cover) : user.coverPic;
-    profileUrl = profile ? await upload(profile) : user.profilePic;
-
-    mutation.mutate({ ...texts, coverPic: coverUrl, profilePic: profileUrl });
-    setOpenUpdate(false);
+    mutation.mutate({
+      name: name || user.name,
+      city: city || user.city,
+      website: website || user.website,
+      profilePic: profilePic || user.profilePic,
+      coverPic: coverPic || user.coverPic,
+    });
   };
 
   return (
     <div className="update">
-        Update
-        <form>
-            <input type="file" onChange={e => setCover(e.target.files[0])} />
-            <input type="file" onChange={e => setProfile(e.target.files[0])} />
-            <input type="text" name="name" onChange={handleChange}/>
-            <input type="text" name="city" onChange={handleChange} />
-            <input type="text" name="website" onChange={handleChange} />
-            <button onClick={handleClick}>Update</button>
-        </form>
-        <button onClick={() => setOpenUpdate(false)}X></button>
-    </div>
-  )
-}
+      <div className="wrapper">
+        <button className="close" onClick={() => setOpenUpdate(false)}>
+          <CloseIcon />
+        </button>
+        <h1>Update Your Profile</h1>
+        <form onSubmit={handleSubmit}>
+          <label>
+            Name
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Name"
+            />
+          </label>
 
-export default Update
+          <label>
+            City
+            <input
+              type="text"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              placeholder="City"
+            />
+          </label>
+
+          <label>
+            Website
+            <input
+              type="text"
+              value={website}
+              onChange={(e) => setWebsite(e.target.value)}
+              placeholder="Website"
+            />
+          </label>
+
+          <label>
+            Profile Picture
+            <input type="file" onChange={(e) => setProfilePic(e.target.files[0])} />
+          </label>
+
+          <label>
+            Cover Picture
+            <input type="file" onChange={(e) => setCoverPic(e.target.files[0])} />
+          </label>
+
+          <button type="submit">Update</button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default Update;
